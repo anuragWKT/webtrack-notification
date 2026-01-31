@@ -1,3 +1,18 @@
+server:
+  port: 8084
+
 spring:
   application:
     name: webtrack-notification
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-group
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+kafka:
+  topics:
+    allocation-events: allocation-events
+    leave-events: leave-events
+    timelog-events: timelog-events
